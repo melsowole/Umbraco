@@ -1,0 +1,41 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+<section id="#projects" class="project-section max-width">
+	<h2 class="section-title">Projects</h2>
+	
+
+	@{
+		var selection = Umbraco.Content(Guid.Parse("60c6c085-89cb-4c87-a535-886d918e6b11"))
+		.ChildrenOfType("projectPage")
+		.Where(x => x.IsVisible())
+		.OrderByDescending(x => x.CreateDate);
+	}
+	<ul class="projects-wrapper">
+		@foreach (var item in selection)
+		{
+			var tn = item.Value<IPublishedContent>("projectThumbnail");
+			<li>
+				<article class="project">
+					<a class="thumbnail" href="@item.Url()">
+					<img src='@tn.Url()'/>
+					</a>
+					<h3 class="title">@item.Name()</h3>
+					<div class="links">
+						<a class="link" href="@item.Url()">Read More</a>
+						<a
+							class="link external site"
+							href='@item.Value("projectLink")'
+							target="_blank"
+						></a>
+					</div>
+				</article>
+			</li>
+		}
+	</ul>
+
+
+</section>

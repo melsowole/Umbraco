@@ -1,0 +1,47 @@
+.project-page p,
+.project-page h2,
+.project-page h1,
+.project-page h3 {
+  width: var(--max-width);
+  margin: auto;
+}
+
+.project-page p.description {
+  padding-bottom: 10vmin !important;
+  padding-top: 3vmin !important;
+}
+
+.project-page .title {
+  padding-top: 20vmin;
+}
+
+.project-page p {
+  max-width: 700px;
+  padding-top: 10vmin;
+  padding-bottom: 1rem;
+  margin: auto;
+}
+
+.project-page p + p {
+  padding-top: 0;
+  padding-bottom: 10vmin;
+}
+
+/* //images */
+.project-page .full-width {
+  background-color: var(--surface);
+  margin: 3rem 2rem 0;
+}
+
+.project-page .full-width img {
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  .project-page {
+    text-align: center;
+  }
+  .project-page p {
+    max-width: 500px;
+  }
+}

@@ -1,0 +1,136 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="/images/icon-logo.svg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/scripts/main.js"></script>
+    <title>@Model.Value("pageTitle", fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString("Olusade Portfolio"))</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="header-wrapper max-width">
+        <h1>
+          <span class="sr-only">Olusade</span
+          ><a href="/" aria-label="Home"
+            ><img class="logo" src="/images/text-logo.svg"
+          /></a>
+        </h1>
+        <nav class="">
+          <ul>
+            <li><a class="link" href="/">Home</a></li>
+            <li><a class="link" href="/#projects">Projects</a></li>
+            <li><a class="link" href="/#contact">Contact</a></li>
+          </ul>
+          <div class="nav-bar max-width">
+            <i class="material-symbols-outlined">menu</i>
+          </div>
+          <div class="nav-overlay"></div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      @RenderBody()
+
+    </main>
+
+
+    <section class="contact-section" id="contact">
+      <div class="max-width contact-wrapper">
+        <h2 class="section-title">Contact</h2>
+        <p class="paragraph">
+          Find me on Github &commat;melsowole or send me an email via the form!
+        </p>
+        <form action="https://formspree.io/f/xqkrqwaq" method="POST">
+          <div class="label-input-wrapper">
+            <label for="email"><small>E-mail</small></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email Address"
+              required=""
+            />
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="name"><small>Name</small></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              required=""
+            />
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="subject"><small>Subject</small></label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Subject of Your Message"
+              required=""
+            />
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="message"><small>Message</small></label>
+            <textarea
+              name="message"
+              id="message"
+              class="txt-s"
+              placeholder="Your message here"
+            ></textarea>
+          </div>
+
+          <!-- your other form fields go here -->
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+
+    <footer class="page-footer">
+      <div class="section-wrapper">
+        <img class="logo" src="/images/icon-logo.svg" />
+        <section>
+          <h3>Navigation</h3>
+          <nav>
+            <ul>
+              <li><a class="link" href="/">Home</a></li>
+              <li><a class="link" href="/#projects">Projects</a></li>
+              <li><a class="link" href="/#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </section>
+        <section class="external-link">
+          <h3>Socials</h3>
+          <nav>
+            <ul>
+              <li>
+                <a
+                  class="link external"
+                  href="https://www.linkedin.com/in/melinda-s-609ba7206/"
+                  >Linkedin</a
+                >
+              </li>
+              <li><a class="link external" href="#">Github</a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+      <small class="page-credit">© 2024 Olusade. All rights reserved.</small>
+    </footer>
+  </body>
+</html>

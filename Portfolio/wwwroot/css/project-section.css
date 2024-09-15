@@ -1,0 +1,41 @@
+.project-section {
+  min-height: 85svh;
+}
+
+.projects-wrapper {
+  display: grid;
+  gap: 5rem 3rem;
+}
+
+.project-section ul {
+  list-style-type: none;
+}
+
+.project .title {
+  grid-area: title;
+}
+
+.project .thumbnail {
+  width: 100%;
+  grid-area: img;
+  background-color: vaR(--surface);
+  aspect-ratio: 4 / 2;
+  display: grid;
+  place-items: center;
+}
+
+.project .thumbnail img {
+  width: 100%;
+}
+
+.project .links {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 1000px) {
+  .projects-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

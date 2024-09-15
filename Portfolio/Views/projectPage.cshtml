@@ -1,0 +1,26 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+<section class="project-page">
+	<h2 class="title">@Model.Value("projectTitle")</h2>
+	<p class="description">@Model.Value("projectDescription")</p>
+	<div class="project-body">
+	<!-- images wrapped in div.full-class -->
+		@Model.Value("projectBody")
+		
+	</div>
+
+	<p>
+	Thanks for reading about this project! To experience it,
+	<a href='@Model.Value("projectLink")' target="_blank">view the project on Github</a>
+	.
+	</p>
+
+	<p>
+	To see my other projects,
+	<a href="/#projects">click here</a>.
+	</p>
+</section>

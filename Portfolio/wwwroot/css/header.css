@@ -1,0 +1,170 @@
+/* HEADER */
+
+.page-header {
+  background-color: var(--background);
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.page-header nav li {
+  color: pink;
+}
+
+.page-header .header-wrapper {
+  display: flex;
+}
+
+.page-header h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.page-header a {
+  display: inline-block;
+}
+
+.page-header .logo {
+  width: 175px;
+}
+
+/* NAVIGATION */
+
+.page-header nav {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.page-header .nav-bar {
+  z-index: 2;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+.page-header .nav-overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.page-header nav.open .nav-overlay {
+  height: 100%;
+}
+
+.page-header ul {
+  z-index: 1;
+  position: absolute;
+  padding-bottom: 2rem;
+  bottom: 2rem;
+
+  transform-origin: top;
+  transform: translateY(100%);
+
+  list-style-type: none;
+  overflow: hidden;
+  text-align: right;
+
+  transition: 0.3s;
+
+  background-color: inherit;
+  width: 100%;
+}
+
+.page-header nav.open ul {
+  transform: translateY(0%);
+}
+
+.page-header li {
+  width: var(--max-width);
+  margin: auto;
+}
+
+.page-header * {
+  color: var(--on-primary);
+}
+
+.page-header li a {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.page-header li a:hover {
+  transform: translateX(-0.5rem);
+}
+
+@media (min-width: 700px) {
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--on-background);
+  }
+
+  .page-header * {
+    color: var(--on-background);
+  }
+
+  .page-header .header-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .page-header .logo {
+    width: 150px;
+  }
+
+  .page-header nav {
+    position: relative;
+    top: 0;
+    background-color: transparent;
+  }
+
+  .page-header .nav-bar {
+    display: none;
+  }
+
+  .page-header ul {
+    display: flex;
+    height: 100%;
+    justify-content: end;
+    position: relative;
+    bottom: 0;
+    text-align: right;
+    transform: translateY(0%);
+    transition: 0s;
+    padding: 0;
+  }
+
+  .page-header li a {
+    padding: 0.8rem 1.5rem;
+    gap: 1;
+  }
+
+  .page-header li {
+    width: auto;
+    margin: 0;
+  }
+
+  .page-header li:last-child {
+    margin-left: 2rem;
+  }
+}
