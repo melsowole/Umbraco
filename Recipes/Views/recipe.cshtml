@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+<section class="pageMargins">
+	@{
+		var image = Model.Value<IPublishedContent>("recipeThumbnail");
+	}
+	<img src="@image.Url()" width="100%">
+
+	<h1>@Model.Value("recipeName")</h1>
+	<p>@Model.Value("recipeDescription")</p>
+	
+	<p>Yield: @Model.Value("recipeYield")</p>
+
+	<div class="tags">
+	@foreach( var tag in Model.Value<IEnumerable<string>>("recipeTags")){
+		<span class="tag">@tag</span>
+	}
+	</div>
+
+</section>
+
+
+<section class="pageMargins">
+	<h2>Ingredients</h2>
+
+	@Model.Value("recipeIngredients")
+</section>
+
+
+<section class="pageMargins">
+	<h2>Instructions</h2>
+	@Model.Value("recipeInstructions")
+</section>
+

@@ -1,0 +1,90 @@
+:root {
+  --color: blue;
+  --colorText: white;
+  --colorBackground: rgb(203, 203, 255);
+  --colorBackgroundText: black;
+  --background: whitesmoke;
+  --surface: white;
+  --text: black;
+  --neutral: gray;
+  --neutralBackground: rgb(219, 219, 219);
+  --neutralText: black;
+
+  --pageMargin: 1rem;
+  --maxTextWidth: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background-color: var(--background);
+}
+
+main {
+  flex-grow: 1;
+}
+
+.pageMargins {
+  padding: 1rem var(--pageMargin);
+}
+
+/* icons */
+i {
+  font-size: 2rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul b {
+  text-transform: uppercase;
+}
+
+h1 {
+  padding-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+h2 {
+  padding-bottom: 0.5rem;
+  font-family: Arial;
+  text-transform: uppercase;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+.cta-wrapper {
+  text-align: center;
+  padding: 1.5rem 0rem 1rem;
+}
+
+.cta {
+  padding: 1rem;
+  background: var(--color);
+  color: var(--colorText);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+@media (min-width: 500px) {
+  :root {
+    --maxTextWidth: calc((100% - 500px) / 2);
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --pageMargin: calc((100vw - 1000px) / 2);
+  }
+}

@@ -1,0 +1,10 @@
+footer {
+  background-color: var(--neutralBackground);
+  color: var(--neutralText);
+  padding: 1rem var(--pageMargin);
+}
+
+footer .columns {
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,17 @@
+header {
+  padding: 1rem var(--pageMargin);
+  display: flex;
+  justify-content: space-between;
+
+  background-color: var(--neutralBackground);
+  color: var(--neutralBackgroundText);
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+}

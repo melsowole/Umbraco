@@ -1,0 +1,65 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+<section class="hero">
+	@{
+		IPublishedContent featuredRecipe = Model.Value<IPublishedContent>("featuredRecipe");
+		if(featuredRecipe != null)
+		{
+			var featuredImage = featuredRecipe.Value<IPublishedContent>("recipeThumbnail");
+
+			<div class="image-wrapper">
+				<img src="@featuredImage.Url()" alt="" />
+			</div>
+
+			<div class="text-wrapper">
+				<h1>@Model.Value("featuredTitle")</h1>
+				<div class="cta-wrapper">
+				<a class="cta" href="@featuredRecipe.Url()">Make the Recipe</a>
+				</div>
+			</div>
+		}
+
+		
+	}
+</section>
+
+<section class="pageMargins">
+	<div class="section-banner">
+		<h1>Latest Recipes</h1>
+	</div>
+
+	<ul class="recipes selection">
+
+		@{
+			var selection = Umbraco.Content(Guid.Parse("9716b2fe-cf25-4577-b733-7ebf3328702b"))
+			.ChildrenOfType("recipe")
+			.Where(x => x.IsVisible())
+			.OrderByDescending(x => x.CreateDate)
+			.Take(3);
+		}
+
+		@foreach (var recipe in selection)
+		{
+			var image = recipe.Value<IPublishedContent>("recipeThumbnail");
+			<li>
+				<a href="@recipe.Url()">
+					<article class="recipe-preview small">
+					<div class="image-wrapper">
+						<img src="@image.Url()" alt="" />
+					</div>
+					<h3>@recipe.Name()</h3>
+					</article>
+				</a>
+			</li>
+		}
+
+	</ul>
+
+	<div class="cta-wrapper">
+		<a class="cta" href="/all-recipes">view all recipes</a>
+	</div>
+</section>

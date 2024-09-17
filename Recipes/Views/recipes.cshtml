@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+<section class="pageMargins">
+	
+	<ul class="recipes all">
+
+	@{
+		var selection = Umbraco.Content(Guid.Parse("9716b2fe-cf25-4577-b733-7ebf3328702b"))
+		.ChildrenOfType("recipe")
+		.Where(x => x.IsVisible())
+		.OrderByDescending(x => x.CreateDate);
+	}
+	@foreach (var recipe in selection)
+	{
+		var image = recipe.Value<IPublishedContent>("recipeThumbnail");
+		<li>
+			<a href="@recipe.Url()">
+				<article class="recipe-preview large">
+				<div class="image-wrapper">
+					<img src="@image.Url()"/>
+				</div>
+				<h3>@recipe.Name()</h3>
+				</article>
+			</a>
+		</li>
+	}
+
+	
+
+
+	</ul>
+</section>

@@ -1,0 +1,34 @@
+.banner {
+  background-color: var(--colorBackground);
+  color: var(--colorBackgroundText);
+  padding: 2rem 0 1rem;
+}
+
+.section-banner {
+  padding: 2rem 0 0rem;
+}
+
+.section-banner p {
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .banner,
+  .section-banner {
+    text-align: center;
+  }
+
+  .banner p,
+  .section-banner p {
+    padding-right: var(--maxTextWidth);
+    padding-left: var(--maxTextWidth);
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+  }
+
+  .section-banner p {
+    display: block;
+  }
+}
