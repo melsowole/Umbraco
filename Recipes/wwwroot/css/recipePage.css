@@ -1,0 +1,46 @@
+.tags {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: var(--colorBackground);
+  color: var(--colorBackgroundText);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+}
+
+.ingredients > h2:first-child,
+.instructions > h2:first-child {
+  padding-bottom: 1rem;
+}
+
+.ingredients ul,
+.instructions ol {
+  list-style-position: inside;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+ol li::marker {
+  font-weight: bold;
+}
+
+.ingredients ul {
+  list-style-type: disc;
+}
+
+.ingredients ul {
+  margin-bottom: 2rem;
+}
+
+.ingredients h2 + *:not(ul),
+.ingredients ul + *:not(ul) {
+  padding-bottom: 0.5rem;
+  text-decoration: underline;
+}

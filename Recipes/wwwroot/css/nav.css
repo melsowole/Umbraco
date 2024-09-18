@@ -1,0 +1,12 @@
+nav ul {
+  display: flex;
+  gap: 1rem;
+}
+
+nav li a {
+  text-transform: uppercase;
+}
+
+nav a {
+  text-decoration: none;
+}

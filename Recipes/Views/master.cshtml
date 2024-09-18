@@ -19,7 +19,7 @@
   </head>
   <body>
     <header>
-      <div class="logo">pinch of yum</div>
+      <div class="logo"><a href="/">pinch of yum</a></div>
 
       <nav>
         <ul>
@@ -50,21 +50,41 @@
     </main>
 
     <footer>
-      <div class="columns">
-        <ul>
-          <b>pinch of yum</b>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Recipes</a></li>
-        </ul>
+      <div class="footer-top">
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/all-recipes">Recipes</a></li>
+          </ul>
+        </nav>
+      </div>
 
-        <ul>
-          <b>socials</b>
-          <li>
-            <a href="#"><i class="lab la-instagram"></i></a>
-            <a href="#"><i class="lab la-pinterest"></i></a>
-            <a href="#"><i class="lab la-facebook"></i></a>
-          </li>
+      <hr />
+
+      <div class="footer-top">
+        <p>© 2024 Pinch of Yum</p>
+      @{
+        var socialLinks = new Dictionary<string, string>
+            {
+              {"instagramLink", "la-instagram"},
+              {"facebookLink", "la-facebook"},
+              {"pinterestLink", "la-pinterest"},
+            };
+        }
+
+        <ul class="socials">
+          @foreach(var link in socialLinks){
+
+            var socialUrl = Model.Value(link.Key)?.ToString();
+
+            if(!string.IsNullOrEmpty(socialUrl)){
+              <li>
+                <a href="@socialUrl"><i class="lab @link.Value"></i></a>
+              </li>
+            }
+          }
+
         </ul>
       </div>
     </footer>

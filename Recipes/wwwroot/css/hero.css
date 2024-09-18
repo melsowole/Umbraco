@@ -27,7 +27,7 @@
 }
 
 .hero h1 {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--text);
 }
 
